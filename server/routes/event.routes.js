@@ -1,0 +1,10 @@
+const event = require("../controllers/event.controller")
+const {auth, adminAuth} = require("../middleware/auth.middleware")
+const router = require("express").Router()
+router.post("/add",adminAuth, event.create)
+router.get("/all", event.getAllEvents)
+router.get("/singleEvent/:id",adminAuth, event.getSingleEvent )
+router.patch("/update/:id", adminAuth,event.updateEvent)
+router.delete("/delete/:id", adminAuth,event.deleteEvent)
+// router.get("/myPosts", auth, post.myPosts)
+module.exports = router
