@@ -1,0 +1,101 @@
+<div class=container>
+    <div>
+        <div class="col-6 m-auto border border-light mt-5 rounded p-3 shadow-lg p-3 mb-5 bg-body rounded">
+            <form action="" [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+                <div class="row">
+                    <h2 class="main-color text-center">أضف شركتك</h2>
+                    <h6 class="col-12 text-center ">
+                        لديك خدمة من خدمات الزفاف وتريدها أن تصل إلى آلاف العرسان الذي يدخلون ايفنتاوي يومياً! قم بتعبئة
+                        البيانات التالية بدقة واحصل على حساب مجاني في ايفنتاوي وادخل مباشرةً إلى لوحة التحكم الخاصة بك
+                        وأضف المعلومات المطلوبة لتفعيل الحساب.
+
+                    </h6>
+                    <div formGroupName="name">
+                        <div class="col-12 mt-3 ">
+                            <input type="text" placeholder="Enter Your Name" class="form-control p-2"
+                                formControlName="name">
+                        </div>
+                        <div class="text-danger col-6" *ngIf="registerationData?.name?.controls?.name?.invalid ">
+                            <div *ngIf="registerationData?.name?.controls?.name?.errors?.['required'] && isSubmitted">
+                                Your Name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div formGroupName="name">
+                        <div class="col-12 mt-3 ">
+                            <input type="text" placeholder="Enter The service Name" class="form-control p-2"
+                                formControlName="name">
+                        </div>
+                        <div class="text-danger col-6" *ngIf="registerationData?.name?.controls?.name?.invalid ">
+                            <div *ngIf="registerationData?.name?.controls?.name?.errors?.['required'] && isSubmitted">
+                                Your Name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3 ">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>select country</option>
+                            <option value="1">Egypt </option>
+                            <option value="2">London</option>
+                            <option value="3">Saudi</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mt-3 ">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>select event</option>
+                            <option value="1">wedding </option>
+                            <option value="2">Birthday</option>
+                            <option value="3">Party</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <input type="email" placeholder="Email" class="form-control  p-2" formControlName="email">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.email.invalid ">
+                        <div *ngIf="registerationData?.email?.errors?.['required'] && isSubmitted">
+                            Email is required
+                        </div>
+                        <div *ngIf="registerationData?.email?.errors?.['email'] && isSubmitted">
+                            Email is invalid
+                        </div>
+                    </div>
+                    <div class="text-danger" *ngIf="errorMsg">
+                        Email is already taken
+                    </div>
+
+                    <div class="col-12 mt-3 ">
+                        <input type="password" placeholder="Password" class="form-control p-2"
+                            formControlName="password">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.password.invalid ">
+
+                        <div *ngIf="registerationData?.password?.errors?.['required'] && isSubmitted">
+                            Password is required
+                        </div>
+                        <div *ngIf="registerationData?.password?.errors?.['pattern'] && isSubmitted">
+                            Password is invalid
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 mt-3 ">
+                        <input type="number" placeholder="Enter Your Phone" class="form-control p-2"
+                            formControlName="phone">
+
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.password.invalid ">
+
+                        <div *ngIf="registerationData?.userType?.errors?.['required'] && isSubmitted">
+                            This field is required
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end mt-3">
+                        <button class="main-bg-color border-0 rounded w-100 p-2 text-white" type="submit">إضافة شركة
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -21,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EventsComponent } from './pages/events/events.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { SingleEventComponent } from './pages/single-event/single-event.component';
+import { AddServiceComponent } from './pages/add-service/add-service.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SingleEventComponent } from './pages/single-event/single-event.componen
     ContactUsComponent,
     EventsComponent,
     ServicesComponent,
-    SingleEventComponent
+    SingleEventComponent,
+    AddServiceComponent
   ],
   imports: [
     BrowserModule,

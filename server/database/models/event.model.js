@@ -28,7 +28,11 @@ const eventSchema = mongoose.Schema({
         type:String,
         trim:true,
         required: function(){ return this.eventType=="img"}
-    }
+    },
+    image:{
+        type:String,
+        trim:true
+    },
 },
 {timeStamps:true})
 

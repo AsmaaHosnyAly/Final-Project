@@ -104,5 +104,20 @@ class Event{
             res.status(500).send({err:e.message})
         }
     }
+    static uploadImage=  async(req, res)=>{
+        try{
+            const ext = path.extname(req.file.originalname)
+            const newName = "images/"+req.file.fieldname + Date.now()+ext
+            fs.rename(req.file.path, newName, ()=>{})
+            req.user.image = newName
+            req.user.name= req.body.name
+            req.user.age = req.body.age
+            await req.user.save()
+            res.send({data:req.user})
+        }
+        catch(e){
+            res.send(e.message)
+        }
+      }
 }
 module.exports =Event

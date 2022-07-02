@@ -13,13 +13,16 @@ export class GlobalService {
   getEvents():Observable<any>{
     return this.http.get(`${this.url}/event/all`)
   }
+  getAllService():Observable<any>{
+    return this.http.get(`${this.url}/service/all`)
+  }
   getManyService():Observable<any>{
     return this.http.get(`${this.url}/service/manyServices`)
   }
   getMyService():Observable<any>{
     return this.http.get(`${this.url}/service/myServices`)
   }
-  register(obj: any): Observable<any> {
+  register(obj: any):Observable<any> {
     return this.http.post(`${this.url}/user/register`, obj)
   }
   login(obj : any):Observable<any>{

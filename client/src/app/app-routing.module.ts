@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddServiceComponent } from './pages/add-service/add-service.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { EventsComponent } from './pages/events/events.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"register" , component:RegisterComponent},
   {path:"gallery" , component:GalleryComponent},
   {path:"events" , component:EventsComponent},
+  {path:"addService" , component:AddServiceComponent},
   {path:"events/:id" , component:SingleEventComponent},
   {path:"events" , children:[
     // localhost:4200/events

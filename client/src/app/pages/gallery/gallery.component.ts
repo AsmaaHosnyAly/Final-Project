@@ -12,8 +12,8 @@ export class GalleryComponent implements OnInit {
   constructor(private global:GlobalService) { }
 
   ngOnInit(): void {
-    this.global.getGallery().subscribe(data=>{
-      this.data = data
+    this.global.getAllService().subscribe(data=>{
+      this.data = data.data
     },(err)=>{
       console.log(err)
     },()=>{
