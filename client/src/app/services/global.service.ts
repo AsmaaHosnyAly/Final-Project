@@ -7,11 +7,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GlobalService {
   public navFlag : boolean = true
+  url = "http://localhost:3000"
   constructor(private http : HttpClient) { }
 
-  login(obj : any):Observable<any>{
-    return this.http.post("http://localhost:3000/user/login" , obj )
+  getEvents():Observable<any>{
+    return this.http.get(`${this.url}/event/all`)
   }
+  getManyService():Observable<any>{
+    return this.http.get(`${this.url}/service/manyServices`)
+  }
+  getMyService():Observable<any>{
+    return this.http.get(`${this.url}/service/myServices`)
+  }
+  register(obj: any): Observable<any> {
+    return this.http.post(`${this.url}/user/register`, obj)
+  }
+  login(obj : any):Observable<any>{
+    return this.http.post(`${this.url}/user/login`, obj )
+  }
+
   editProfileImage(obj:any) :Observable<any>{
     return this.http.post("http://dashboard.roshetah.com/api/auth/StoreAccountImages" , obj)
   }

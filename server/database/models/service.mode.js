@@ -31,5 +31,11 @@ const serviceSchema = mongoose.Schema({
     }
 },
 {timeStamps:true})
+
+ serviceSchema.virtual("manyServices", {
+    ref:"Service",
+    localField:"_id",
+    foreignField:"serviceId"
+})
 const Service= mongoose.model("Service", serviceSchema)
 module.exports = Service

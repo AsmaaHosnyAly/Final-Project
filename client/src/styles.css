@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.main-color{
+    color: hsla(300, 85%, 18%, 0.699);
+}
+.main-bg-color{
+    background-color: hsla(300, 85%, 18%, 0.699);
+}
+.secondary-color{
+    color: #78838a;;
+}
+.secondary-bg-color{
+   background-color: #78838a;;
+}
+.color-white{
+color: #fff;
+}

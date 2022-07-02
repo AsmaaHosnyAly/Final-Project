@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     this.global.login(this.model).subscribe(res=>{
       console.log(res)
       localStorage.setItem("token" , res.access_token)
-      this.route.navigate(["edit-profile"])
+      this.route.navigate([""])
     })
   }
 

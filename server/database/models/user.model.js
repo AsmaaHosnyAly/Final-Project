@@ -6,18 +6,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required: true,
         trim:true
-    }, 
-    age:{
-        type:Number,
-        min:21,
-        max:60
-    }, 
-    gender:{
-        type:String,
-        required: true,
-        trim:true,
-        enum:["male", "female"]
-    }, 
+    },   
     email:{
         type:String,
         required: true,
@@ -34,33 +23,11 @@ const userSchema = new mongoose.Schema({
         trim:true,
         match:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     },
-    addresses:[
-        {
-            details:{
-                type:String,
-                // required:true,
-                trim:true
-            },
-            addrType:{
-                type:String,
-                // required:true,
-                trim:true
-            }
-        }
-    ],
-    postalCode:{
-        type:String,
-        trim:true
-    }, 
+    
     status:{
         type:Boolean,
         default:false
-    }, 
-    phone:{
-        type:String,
-        required: true,
-        trim:true
-    }, 
+    },  
     image:{
         type:String,
         trim:true

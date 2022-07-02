@@ -1,11 +1,14 @@
 const serviceModel = require("../database/models/service.mode")
+const eventModel=require("../database/models/event.model")
 class Service{
     static addService= async(req,res)=>{
      
         try{
+            
             const serviceData = new serviceModel({
                 ...req.body,
-                userId: req.user._id
+                userId: req.user._id,
+                // eventId:event.find( event._id)
             })
             await serviceData.save()
             res.status(200).send({
@@ -53,7 +56,7 @@ class Service{
             res.status(500).send({apiStatus:false, error: e, message:e.message})
         }
     }
-    //update Event
+    //update service
     static updateService= async(req,res)=>{
         try{
             const serviceData = await serviceModel.findByIdAndUpdate(
@@ -74,7 +77,7 @@ class Service{
      //delete  Service
      static deleteService= async(req,res)=>{
         try{
-            const serviceData = await eventModel.findByIdAndDelete( req.params.id)
+            const serviceData = await serviceModel.findByIdAndDelete( req.params.id)
             res.status(200).send({
                 apiStatus:true,
                 data:serviceData,
@@ -88,13 +91,17 @@ class Service{
     // TO GET all services related with event
     static manyServices = async(req,res)=>{
         try{
-            await req.Event.populate("manyServices")
-            res.status(200).send({data:req.Event.manyServices})
+
+          let data= await  serviceModel.find(req.params.eventId).populate("manyServices")
+           
+            res.status(200).send(data)
         }
         catch(e){
             res.status(500).send({err:e.message})
         }
     }
+
+    
     static myServices = async(req,res)=>{
         try{
             await req.user.populate("myServices")

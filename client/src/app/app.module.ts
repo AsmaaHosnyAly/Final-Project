@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +16,11 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { from } from 'rxjs';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { RegisterComponent } from './pages/register/register.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EventsComponent } from './pages/events/events.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { SingleEventComponent } from './pages/single-event/single-event.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +31,21 @@ import { RegisterComponent } from './pages/register/register.component';
     IndexComponent,
     ErrorComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContactUsComponent,
+    EventsComponent,
+    ServicesComponent,
+    SingleEventComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule ,
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot(),
+     FontAwesomeModule, 
   ],
   providers: [
     {

@@ -1,13 +1,69 @@
-<form action="" #login="ngForm">
-    <div class="row my-4 gy-4">
-        <div class="col-4">
-            <input type="email" placeholder="enter your email" class="form-control" name="email">
-        </div>
-        <div class="col-4">
-            <input type="password" placeholder="enter your password" class="form-control" name="password">
-        </div>
-        <div class="col-4">
-            <button class="btn btn-primary">login</button>
+<div class=container>
+    <div class="row">
+        <div class="col-4 m-auto border border-light mt-5 rounded p-3 shadow-lg p-3 mb-5 bg-body rounded">
+            <form action="" [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+                <div class="row">
+                    <h2 class="col-12 text-center main-color">Sign Up </h2>
+
+
+                    <div formGroupName="name">
+                        <div class="col-12 mt-3 ">
+                            <input type="text" placeholder="Your Name" class="form-control p-2" formControlName="name">
+                        </div>
+                        <div class="text-danger col-6" *ngIf="registerationData?.name?.controls?.name?.invalid ">
+                            <div *ngIf="registerationData?.name?.controls?.name?.errors?.['required'] && isSubmitted">
+                                Your Name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input type="email" placeholder="Email" class="form-control  p-2" formControlName="email">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.email.invalid ">
+                        <div *ngIf="registerationData?.email?.errors?.['required'] && isSubmitted">
+                            Email is required
+                        </div>
+                        <div *ngIf="registerationData?.email?.errors?.['email'] && isSubmitted">
+                            Email is invalid
+                        </div>
+                    </div>
+                    <div class="text-danger" *ngIf="errorMsg">
+                        Email is already taken
+                    </div>
+
+                    <div class="col-12 mt-3 ">
+                        <input type="password" placeholder="Password" class="form-control p-2"
+                            formControlName="password">
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.password.invalid ">
+
+                        <div *ngIf="registerationData?.password?.errors?.['required'] && isSubmitted">
+                            Password is required
+                        </div>
+                        <div *ngIf="registerationData?.password?.errors?.['pattern'] && isSubmitted">
+                            Password is invalid
+                        </div>
+
+                    </div>
+                    <div class="col-12 mt-3 ">
+
+                          <input type="radio" id="partner" name="userType" value="partner" formControlName="userType">
+                          <label for="partner">Join as A partner</label><br>
+                          <input type="radio" id="user" name="userType" value="user" formControlName="userType">
+                          <label for="user">Need a service</label><br>
+                    </div>
+                    <div class="text-danger" *ngIf="registerationData.password.invalid ">
+
+                        <div *ngIf="registerationData?.userType?.errors?.['required'] && isSubmitted">
+                            This field is required
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end mt-3">
+                        <button class="main-bg-color border-0 rounded w-100 p-2 text-white" type="submit">Sign
+                            Up</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</form>
+</div>

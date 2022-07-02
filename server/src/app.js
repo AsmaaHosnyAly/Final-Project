@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}))
 const userRoutes=require("../routes/user.routes")
 app.use("/user",userRoutes)
 const eventRoutes=require("../routes/event.routes")
-const serviceRoutes=require("../routes/event.routes")
+const serviceRoutes=require("../routes/service.routes")
 app.use("/event", eventRoutes)
 app.use("/service", serviceRoutes)
 module.exports = app
